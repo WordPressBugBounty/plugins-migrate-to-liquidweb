@@ -2,9 +2,9 @@
 Contributors: blogvault, akshatc, liquidweb, nexcess
 Tags: liquidweb, migration
 Requires at least: 4.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 5.6.0
-Stable tag: 5.56
+Stable tag: 5.88
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,10 @@ No, that's the beauty of this plugin. It runs on a SAAS-based technology and a s
 BlogVault is designed to be used to migrate to Managed WordPress and Managed WooCommerce plans on Nexcess and does not support WordPress sites running on VPS plans on Liquid Web.
 
 == Changelog ==
+= 5.88 =
+* Tweak: Code Restructuring
+* Tweak: Added support for PHP 8.4
+
 = 5.56 =
 * Better handling for Activate Redirect
 

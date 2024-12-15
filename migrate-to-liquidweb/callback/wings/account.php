@@ -47,22 +47,22 @@ class BVAccountCallback extends BVCallbackBase {
 		$settings = $this->settings;
 		switch ($request->method) {
 		case "addacc":
-			LWAccount::addAccount($this->settings, $params['public'], $params['secret']);
-			$resp = array("status" => LWAccount::exists($this->settings, $params['public']));
+			LWAccount::addAccount($settings, $params['public'], $params['secret']);
+			$resp = array("status" => LWAccount::exists($settings, $params['public']));
 			break;
 		case "rmacc":
-			$resp = array("status" => LWAccount::remove($this->settings, $params['public']));
+			$resp = array("status" => LWAccount::remove($settings, $params['public']));
 			break;
 		case "updt":
 			$account->updateInfo($params);
-			$resp = array("status" => LWAccount::exists($this->settings, $params['pubkey']));
+			$resp = array("status" => LWAccount::exists($settings, $params['pubkey']));
 			break;
 		case "updtapikey":
-			LWAccount::updateApiPublicKey($this->settings, $params['pubkey']);
-			$resp = array("status" => $this->settings->getOption(LWAccount::$api_public_key));
+			LWAccount::updateApiPublicKey($settings, $params['pubkey']);
+			$resp = array("status" => $settings->getOption(LWAccount::$api_public_key));
 			break;
 		case "rmbvscrt":
-			$resp = array("status" => $settings->deleteOption('bvSecretKey'));
+			$resp = array("status" => LWRecover::deleteDefaultSecret($settings));
 			break;
 		case "rmbvkeys":
 			$resp = array("status" => $settings->deleteOption('bvKeys'));
@@ -74,7 +74,7 @@ class BVAccountCallback extends BVCallbackBase {
 			$resp = array("status" => $settings->deleteOption('bvAccounts'));
 			break;
 		case "fetch":
-			$accounts = LWAccount::allAccounts($this->settings);
+			$accounts = LWAccount::allAccounts($settings);
 			if (!isset($params['full'])) {
 				foreach ($accounts as &$account) {
 					if (isset($account['secret'])) {
