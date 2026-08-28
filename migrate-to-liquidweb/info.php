@@ -11,7 +11,7 @@ if (!class_exists('LWInfo')) :
 		public $ip_header_option = 'lwipheader';
 		public $brand_option = 'lwbrand';
 		public $wp_lp_whitelabel_option = 'lwLpWhitelabelConf';
-		public $version = '6.65';
+		public $version = '6.72';
 		public $webpage = 'https://www.liquidweb.com';
 		public $appurl = 'https://migrate.blogvault.net';
 		public $slug = 'migrate-to-liquidweb/liquidweb.php';
